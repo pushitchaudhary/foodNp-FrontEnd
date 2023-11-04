@@ -1,6 +1,11 @@
 import React from 'react'
 import './registration.css'
+import {useState} from 'react'
 function Registration() {
+
+    const [email, setEmail ] = useState('')
+    console.log(email)
+
   return (
     <>
         <body>
@@ -9,7 +14,7 @@ function Registration() {
                     <h2 className='Registration'>Registration Form</h2>
                     <div className="form-group">
                         <label htmlFor="userEmail">Email</label>
-                        <input type="email" id="userEmail" name="userEmail"  />
+                        <input type="email" id="userEmail" name="userEmail" onChange={(e)=>{ setEmail(e.target.value) }}  />
                     </div>
                     <div className="form-group">
                         <label htmlFor="userName">Name</label>
