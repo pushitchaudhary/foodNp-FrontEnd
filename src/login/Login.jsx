@@ -17,7 +17,7 @@ function Login() {
                     </div>
                     <button type="submit">Submit</button>
                 </form>
-                <a href="">Already have an account?</a>
+                <a href="/registration">Sign Up?</a>
             </div>
         </body>
     </>
