@@ -4,6 +4,11 @@ import {useState} from 'react'
 function Registration() {
 
     const [email, setEmail ] = useState('')
+    const [name, setName ] = useState('')
+    const [password, setPassword] = useState('')
+    const [phone, setPhone] = useState('')
+
+
     console.log(email)
 
   return (
@@ -18,11 +23,11 @@ function Registration() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="userName">Name</label>
-                        <input type="text" id="userName" name="userName" />
+                        <input type="text" id="userName" name="userName" onChange={(e)=>{ setEmail(e.target.value) }} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="userPassword">Password</label>
-                        <input type="password" id="userPassword" name="userPassword" />
+                        <input type="password" id="userPassword" name="userPassword" onChange={(e)=>{  }} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="userPhone">Phone</label>
