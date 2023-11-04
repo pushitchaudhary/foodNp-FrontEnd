@@ -26,7 +26,7 @@ function Registration() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="userName">Name</label>
-                        <input type="text" id="userName" name="userName" onChange={(e)=>{ setEmail(e.target.value) }} />
+                        <input type="text" id="userName" name="userName" onChange={(e)=>{ setName(e.target.value) }} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="userPassword">Password</label>
