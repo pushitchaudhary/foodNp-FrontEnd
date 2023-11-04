@@ -9,7 +9,10 @@ function Registration() {
     const [phone, setPhone] = useState('')
 
 
-    console.log(email)
+    console.log('email', email)
+    console.log('name', name)
+    console.log('pass', password)
+    console.log('phone', phone)
 
   return (
     <>
