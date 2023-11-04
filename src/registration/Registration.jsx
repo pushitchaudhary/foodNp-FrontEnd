@@ -27,11 +27,11 @@ function Registration() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="userPassword">Password</label>
-                        <input type="password" id="userPassword" name="userPassword" onChange={(e)=>{  }} />
+                        <input type="password" id="userPassword" name="userPassword" onChange={(e)=>{ setPassword(e.target.value) }} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="userPhone">Phone</label>
-                        <input type="tel" id="userPhone" name="userPhone" />
+                        <input type="tel" id="userPhone" name="userPhone" onChange={(e)=>{ setPhone(e.target.value) }} />
                     </div>
                     <button type="submit">Submit</button>
                 </form>
