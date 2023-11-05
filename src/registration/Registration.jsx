@@ -18,19 +18,20 @@ function Registration() {
 
     
 
-
-
     const submitData = (e)=>{
         e.preventDefault()
 
-        const data = ()=>{
-            userEmail = email,
-            userName = name,
-            userPassword = password,
-            userPhone = phone
+        const data = {
+            userEmail : email,
+            userName : name,
+            userPassword : password,
+            userPhone : phone,
+            recaptchaValue : recaptcha
         }
+
+        console.log(data)
     
-        axios.get('http://localhost:4000/user',data,recaptcha)
+        axios.post('http://localhost:4000/user',data)
         .then((resonse)=>{
             alert('user created')
         })
