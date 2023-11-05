@@ -31,13 +31,17 @@ function Registration() {
 
         console.log(data)
     
-        axios.post('http://localhost:4000/user',data)
-        .then((resonse)=>{
-            alert('user created')
+        axios.post('http://localhost:4000/user', data)
+        .then((response) => {
+            if (response.data && response.data.status === "success") {
+            alert('User created');
+            } else {
+            alert('User creation failed');
+            }
         })
-        .catch((error)=>{
-            alert('errror ', error)
-        })
+        .catch((error) => {
+            alert('Error: ' + error.message);
+        });
 
     }
 
