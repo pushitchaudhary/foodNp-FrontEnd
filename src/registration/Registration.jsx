@@ -1,7 +1,12 @@
 import React from 'react'
 import './registration.css'
 import {useState} from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
+
+
 function Registration() {
+
+    const sitekey = "6LcNT_coAAAAAA_PltvSkI8tXWOIOTdWWdWFPGU7"
 
     const [email, setEmail ] = useState('')
     const [name, setName ] = useState('')
@@ -16,6 +21,9 @@ function Registration() {
         console.log('phone', phone)
     }
 
+    const onChange = (value)=>{
+        console.log(value)
+    }
 
   return (
     <>
@@ -38,6 +46,12 @@ function Registration() {
                     <div className="form-group">
                         <label htmlFor="userPhone">Phone</label>
                         <input type="tel" id="userPhone" name="userPhone" onChange={(e)=>{ setPhone(e.target.value) }} />
+                    </div>
+                    <div className="form-group">
+                        <ReCAPTCHA 
+                            sitekey = {sitekey}
+                            onChange={onChange}
+                        />
                     </div>
                     <button type="submit">Submit</button>
                 </form>
