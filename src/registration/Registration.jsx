@@ -2,6 +2,7 @@ import React from 'react'
 import './registration.css'
 import {useState} from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
+import axios from 'axios'
 
 
 function Registration() {
@@ -13,18 +14,35 @@ function Registration() {
     const [name, setName ] = useState('')
     const [password, setPassword] = useState('')
     const [phone, setPhone] = useState('')
+    const [recaptcha , setRecaptcha] = useState('')
+
+    
 
 
-    const submitData = ()=>{
-        userEmail = email,
-        userName = name,
-        userPassword = password,
-        userPhone = phone
+
+    const submitData = (e)=>{
+        e.preventDefault()
+
+        const data = ()=>{
+            userEmail = email,
+            userName = name,
+            userPassword = password,
+            userPhone = phone
+        }
+    
+        axios.get('http://localhost:4000/user',data,recaptcha)
+        .then((resonse)=>{
+            alert('user created')
+        })
+        .catch((error)=>{
+            alert('errror ', error)
+        })
+
     }
-    console.log('submit data', submitData)
 
+    
     const onChange = (value)=>{
-        console.log(value)
+        setRecaptcha(value)
     }
 
   return (
