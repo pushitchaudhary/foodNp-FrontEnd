@@ -9,16 +9,19 @@ function Registration() {
     const [phone, setPhone] = useState('')
 
 
-    console.log('email', email)
-    console.log('name', name)
-    console.log('pass', password)
-    console.log('phone', phone)
+    const submitData = ()=>{
+        console.log('email', email)
+        console.log('name', name)
+        console.log('pass', password)
+        console.log('phone', phone)
+    }
+
 
   return (
     <>
         <body>
             <div className="container">
-                <form>
+                <form >
                     <h2 className='Registration'>Registration Form</h2>
                     <div className="form-group">
                         <label htmlFor="userEmail">Email</label>
