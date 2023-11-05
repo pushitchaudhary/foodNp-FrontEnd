@@ -18,7 +18,7 @@ function Registration() {
 
     
 
-    const submitData = (e)=>{
+    const submitData = async (e)=>{
         e.preventDefault()
 
         const data = {
@@ -29,19 +29,64 @@ function Registration() {
             recaptchaValue : recaptcha
         }
 
-        console.log(data)
-    
+
         axios.post('http://localhost:4000/user', data)
         .then((response) => {
-            if (response.data && response.data.status === "success") {
+          if (response.status === 200) {
             alert('User created');
-            } else {
+          } else {
             alert('User creation failed');
-            }
+          }
         })
         .catch((error) => {
-            alert('Error: ' + error.message);
+          if (error.response.status === 400) {
+            alert(error.response.data.message);  // database baat pathayer error show hunxha
+          } else {
+            console.error('Error:', error);
+            alert('Network Error: ' + error.message);
+          }
         });
+
+
+
+
+
+        // console.log(data)
+    
+        // const response = await axios.post('http://localhost:4000/user', data)
+
+        // console.log(response)
+
+        // if( response.status == 204){
+        //    return alert('khali')
+        // //    return alert('field khali')
+        // }
+        // if (response.status == 200) {
+        //     alert('User created');
+        // } else {
+        //     alert('User creation failed');
+        // }
+
+// -------------------------------------
+
+        // .then((response) => {
+        //     console.log('Response:', response);
+
+        //     if(response.status == 404){
+        //         alert('Field are required')
+        //     }
+
+        //     if (response.status == 200) {
+        //         alert('User created');
+        //     } else {
+        //     alert('User creation failed');
+        //     }
+        // })
+        // .catch((error) => {
+        //     console.log('Error:', error);
+        //     alert('Error: ' + error.message);
+        // });
+
 
     }
 
