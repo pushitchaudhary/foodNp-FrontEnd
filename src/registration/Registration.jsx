@@ -6,6 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 function Registration() {
 
+    const backend = "6LcNT_coAAAAAPfwNaCKOMBTVUwzuPAQVDx2E_OK"
     const sitekey = "6LcNT_coAAAAAA_PltvSkI8tXWOIOTdWWdWFPGU7"
 
     const [email, setEmail ] = useState('')
@@ -15,11 +16,12 @@ function Registration() {
 
 
     const submitData = ()=>{
-        console.log('email', email)
-        console.log('name', name)
-        console.log('pass', password)
-        console.log('phone', phone)
+        userEmail = email,
+        userName = name,
+        userPassword = password,
+        userPhone = phone
     }
+    console.log('submit data', submitData)
 
     const onChange = (value)=>{
         console.log(value)
@@ -29,7 +31,7 @@ function Registration() {
     <>
         <body>
             <div className="container">
-                <form >
+                <form onSubmit={submitData}  method='post'>
                     <h2 className='Registration'>Registration Form</h2>
                     <div className="form-group">
                         <label htmlFor="userEmail">Email</label>
